@@ -6,17 +6,21 @@ Delete recording from Twilio using python2 library given list of call ids to
 retain. Implement FetchSuccessIdsByDate.py to get a list of ids to retain.
 
 1. Install python library 
-   * pip install twilio==6.0.0rc13
-   * pip install pymongo
+   * sudo pip install twilio==6.0.0rc13
+   * sudo pip install pymongo
 
-2. Install gnu parallel
+2. Install gnu parallel (delete process parallization)
+   * sudo yum install parallel
 
-3. Following environment variables need to be set
+3. Install bc (cost estimation)
+   * sudo yum install bc
+
+4. Following environment variables need to be set
    * TWILIO_AUTH_TOKEN
    * TWILIO_AUTH_SID
    * WORK_DIR_BASE - working directory. It will get cleaned up after job run
 
-4. Usage
+5. Usage
    ```
     ./clean_recording.sh #offset #num_days
     Start deleting records #offset days back for #num_days

@@ -1,5 +1,5 @@
 #! /bin/bash
-# Sscript to Delete unsuccessful recordings from Twilio
+# Script to Delete unsuccessful recordings from Twilio
 
 #### Environment variables required
 # TWILIO_AUTH_TOKEN
@@ -89,14 +89,17 @@ delete_recordings() {
 generate_report() {
 
     # Best effort to estimate saving
+    # Adjusted for minute termination per call
     cpm=0.0005
-    retained_sec=$(cat ${WORK_DIR}/joined-recording-ids.txt | awk '{ sum+=$NF } END {print sum}')
+    retained_calls=$(cat ${WORK_DIR}/joined-recording-ids.txt | wc -l)
+    retained_sec=$(cat ${WORK_DIR}/joined-recording-ids.txt | awk '{ sum+=(($NF - ($NF % 60))/60 + (($NF % 60) > 0 ? 1 : 0))} END {print sum}')
     rcost=$((${retained_sec:-0}/60)) && rcost=$(bc -l <<< "($rcost * $cpm)")
-    log "Retained successful recordings will cost USD $rcost"
+    log "Retained $retained_calls successful recordings will cost USD $rcost"
 
-    deleted_sec=$(cat ${WORK_DIR}/delete-recording-ids.txt | awk '{ sum+=$NF } END {print sum}')
+    deleted_calls=$(cat ${WORK_DIR}/delete-recording-ids.txt | wc -l)
+    deleted_sec=$(cat ${WORK_DIR}/delete-recording-ids.txt | awk '{ sum+=(($NF - ($NF % 60))/60 + (($NF % 60) > 0 ? 1 : 0))} END {print sum}')
     scost=$((${deleted_sec:-0}/60)) && scost=$(bc -l <<< "($scost * $cpm)")
-    log "Deleted recordings saved USD $scost"
+    log "Deleted $deleted_calls recordings saved USD $scost"
 }
 
 
