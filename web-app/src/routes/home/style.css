@@ -2,3 +2,10 @@
 	width: 100%;
 	padding: 56px 0 30px;
 }
+
+
+.loaderContainer {
+	position: relative;
+	width: 100%;
+	padding-top: 25vh;
+}

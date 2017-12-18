@@ -1,8 +1,9 @@
 .root {
     position: relative;
     margin: 50px 100px 0;
-    padding: 20px;
-    background: #673AB7;
+    padding: 25px;
+    background: #444444;
+    border-radius: 6px;
 
     color: #ffffff;
     font-size: 16px;
@@ -15,10 +16,26 @@
 }
 
 
-.value {
-    margin-left: 10px;
+.description {
     font-size: 18px;
     font-weight: bold;
+}
+
+
+.indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 20px;
+    border-radius: 6px;
+}
+
+.indicatorRed {
+    background-color: #d50000;
+}
+
+.indicatorGreen {
+    background-color: #64dd17;
 }
 
 
@@ -28,5 +45,26 @@
     top: 50%;
     transform: translateY(-50%);
     padding: 10px 20px;
-    background: greenyellow;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.buttonRed {
+    background-color: #c62828;
+}
+.buttonRed:hover {
+    background-color: #b71c1c;
+}
+.buttonRed:active {
+    background-color: #8e0000;
+}
+
+.buttonGreen {
+    background-color: #2e7d32;
+}
+.buttonGreen:hover {
+    background-color: #1b5e20;
+}
+.buttonGreen:active {
+    background-color: #005005;
 }

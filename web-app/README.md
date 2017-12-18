@@ -1,4 +1,8 @@
-# {{ name }}
+# Configure Bulk Delete
+
+# Built on Preact JS
+# Developed using preact-cli
+
 
 ## CLI Commands
 
