@@ -1,10 +1,10 @@
 # Configure Bulk Delete
 
-# Built on Preact JS
-# Developed using preact-cli
+## Built on Preact JS
+## Developed using preact-cli
 
 
-## CLI Commands
+### CLI Commands
 
 ``` bash
 # install dependencies
